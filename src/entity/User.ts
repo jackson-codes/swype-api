@@ -18,5 +18,5 @@ export class User {
   opinions: Opinion[];
 
   @OneToMany(() => Group, group => group.admin)
-  adminOf: Group;
+  adminOf: Group[];
 }

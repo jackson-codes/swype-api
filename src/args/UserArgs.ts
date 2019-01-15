@@ -5,6 +5,5 @@ export interface UsersArgs {
 
 export interface UserSaveArgs {
   id?: number;
-  firstName: string;
-  lastName: string;
+  username: string;
 }

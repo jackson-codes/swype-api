@@ -1,8 +1,7 @@
 import {Controller, Mutation, Query} from "vesper";
 import {EntityManager, FindManyOptions} from "typeorm";
-import {UsersArgs} from "../args/UsersArgs";
-import {UserSaveArgs} from "../args/UserSaveArgs";
 import {User} from "../entity/User";
+import { UsersArgs, UserSaveArgs } from "../args/UserArgs";
 
 @Controller()
 export class UserController {
@@ -30,8 +29,7 @@ export class UserController {
     @Mutation()
     async userSave(args: UserSaveArgs): Promise<User> {
         const user = args.id ? await this.entityManager.findOne(User, args.id) : new User();
-        user.firstName = args.firstName;
-        user.lastName = args.lastName;
+        user.username = args.username;
         return this.entityManager.save(user);
     }
 

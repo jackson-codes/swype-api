@@ -1,4 +1,4 @@
-import {Entity, PrimaryGeneratedColumn, Column, ManyToOne, Index} from "typeorm";
+import {Entity, PrimaryGeneratedColumn, Column, ManyToOne, Index, JoinColumn} from "typeorm";
 import { Show } from "./Show";
 import { User } from "./User";
 
@@ -11,10 +11,16 @@ export class Opinion {
   @PrimaryGeneratedColumn()
   id: number
 
+  @Column()
+  showId: number;
   @ManyToOne(() => Show, show => show.opinions)
+  @JoinColumn({ name: 'showId' })
   show: Show;
 
+  @Column()
+  userId: number;
   @ManyToOne(() => User, user => user.opinions)
+  @JoinColumn({ name: 'userId' })
   user: User;
 
   @Column()
