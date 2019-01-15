@@ -1,19 +1,22 @@
-import {Entity, PrimaryGeneratedColumn, OneToMany, Column} from "typeorm";
-import {Photo} from "./Photo";
+import { Entity, PrimaryGeneratedColumn, OneToMany, Column, ManyToMany } from "typeorm";
+import { Group } from "./Group";
+import { Opinion } from "./Opinion";
 
 @Entity()
 export class User {
 
-    @PrimaryGeneratedColumn()
-    id: number;
+  @PrimaryGeneratedColumn()
+  id: number;
 
-    @Column()
-    firstName: string;
+  @Column()
+  name: string;
 
-    @Column()
-    lastName: string;
+  @ManyToMany(() => Group, group => group.members)
+  groups: Group[];
 
-    @OneToMany(() => Photo, photo => photo.user)
-    photos: Photo[];
+  @OneToMany(() => Opinion, opinion => opinion.user)
+  opinions: Opinion[];
 
+  @OneToMany(() => Group, group => group.admin)
+  adminOf: Group;
 }
