@@ -1,6 +1,7 @@
 type User {
-    id: Int
-    firstName: String
-    lastName: String
-    photos: [Photo]
+  id: Int
+  username: String
+  groups: [Group]
+  opinions: [Opinion]
+  adminOf: [Group]
 }

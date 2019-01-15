@@ -1,0 +1,8 @@
+type Group {
+  id: Int
+  name: String
+  admin: User
+  key: String
+  sharable: Boolean
+  members: [User]
+}

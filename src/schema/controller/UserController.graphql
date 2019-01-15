@@ -1,9 +1,8 @@
 type Query {
-    users(limit: Int, offset: Int): [User]
-    user(id: Int): User
+  users(search: String, limit: Int, offset: Int): [User]
+  user(id: Int): User
 }
 
 type Mutation {
-    userSave(id: Int, firstName: String, lastName: String): User
-    userDelete(id: Int): Boolean
+  userSave(id: Int, name: String): User
 }

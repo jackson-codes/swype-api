@@ -1,0 +1,13 @@
+enum EmotionalOpinion {
+  dislike
+  like
+  love
+}
+
+type Opinion {
+  id: Int
+  show: Show
+  user: User
+  seen: Boolean
+  opinion: EmotionalOpinion
+}

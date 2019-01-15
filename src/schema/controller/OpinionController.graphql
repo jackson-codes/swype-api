@@ -1,0 +1,7 @@
+type Query {
+  opinion(id: Int): Opinion
+}
+
+type Mutation {
+  opinionSave(userId: Int, showId: Int, seen: Boolean, opinion: EmotionalOpinion): Opinion
+}

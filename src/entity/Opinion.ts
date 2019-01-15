@@ -2,6 +2,8 @@ import {Entity, PrimaryGeneratedColumn, Column, ManyToOne, Index} from "typeorm"
 import { Show } from "./Show";
 import { User } from "./User";
 
+export type EmotionalOpinion = 'dislike' | 'like' | 'love';
+
 @Entity()
 @Index((relation: Opinion) => [relation.show, relation.user], { unique: true })
 export class Opinion {
@@ -19,6 +21,6 @@ export class Opinion {
   seen: boolean;
 
   @Column({ enum: ['dislike', 'like', 'love'] })
-  opinion: 'dislike' | 'like' | 'love';
+  opinion: EmotionalOpinion;
 
 }

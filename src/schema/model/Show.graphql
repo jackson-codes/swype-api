@@ -1,0 +1,5 @@
+type Show {
+  id: Int
+  name: String
+  opinions: [Opinion]
+}

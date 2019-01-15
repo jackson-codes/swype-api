@@ -9,7 +9,7 @@ export class User {
   id: number;
 
   @Column()
-  name: string;
+  username: string;
 
   @ManyToMany(() => Group, group => group.members)
   groups: Group[];

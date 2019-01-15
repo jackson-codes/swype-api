@@ -1,0 +1,4 @@
+type Query {
+  groups(userId: Int, limit: Int, offset: Int): [Group]
+  group(id: Int): Group
+}
